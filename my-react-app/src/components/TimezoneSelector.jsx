@@ -1,28 +1,16 @@
-// dodaj komponent do wybierania i dodawania nowych stref czasowych.
-
-
-
-//TimezoneSelector:
-// - Posiada własny stan dla aktualnie wybranej strefy czasowej.
-// - Umożliwia wybór strefy czasowej z rozwijanej listy (zwykły input select).
-// - Przycisk "Dodaj" dodaje wybraną strefę do listy w komponencie App.
-
-
 import React, { useState } from "react";
 
-function TimezoneSelector({ onAddUTC, availableUTCS }) {
-  const [selectedUTC, setSelectedUTC] = useState(""); // Zmienna do przechowywania wybranej strefy czasowej UTC
+function TimezoneSelector({ onAddUTC, availableTimezones }) {
+  const [selectedUTC, setSelectedUTC] = useState("");
 
-  // Funkcja obsługująca zmiany w elemencie select
   function handleSelectChange(e) {
     setSelectedUTC(e.target.value);
   }
 
-  // Funkcja dodająca wybraną strefę czasową do listy w głównym komponencie
-  function addUTCToList() {
-    if (selectedUTC) {
+  function addUTCToList() { 
+    if (selectedUTC) { 
       onAddUTC(selectedUTC);
-      setSelectedUTC(""); // Czyszczenie wyboru w elemencie select po dodaniu
+      setSelectedUTC("");
     }
   }
 
@@ -30,7 +18,7 @@ function TimezoneSelector({ onAddUTC, availableUTCS }) {
     <div>
       <select value={selectedUTC} onChange={handleSelectChange}>
         <option value="">Wybierz strefę czasową</option>
-        {availableUTCS.map((utc) => (
+        {availableTimezones.map((utc) => (
           <option key={utc} value={utc}>
             {utc}
           </option>
@@ -42,3 +30,4 @@ function TimezoneSelector({ onAddUTC, availableUTCS }) {
 }
 
 export default TimezoneSelector;
+

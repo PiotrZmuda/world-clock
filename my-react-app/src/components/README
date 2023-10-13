@@ -1,0 +1,18 @@
+//App
+//- Przechowuje listę stref czasowych, które mają być wyświetlane (np. ["UTC", "UTC+1", "UTC-1"]).
+// - Dostarcza funkcje do dodawania i usuwania stref z listy.
+
+
+//Clock
+// komponent wyświetlający czas dla konkretnej strefy czasowej
+// - Otrzymuje strefę czasową jako props.
+// - Wykorzystuje useEffect i useState do zarządzania czasem
+
+// ClockList:
+// - Otrzymuje listę stref czasowych z App i dla każdej strefy renderuje komponent Clock.
+// - Dla każdego zegara jest przycisk "Usuń", który usuwa zegar ze strefą z listy.
+
+//TimezoneSelector:
+// - Posiada własny stan dla aktualnie wybranej strefy czasowej.
+// - Umożliwia wybór strefy czasowej z rozwijanej listy (zwykły input select).
+// - Przycisk "Dodaj" dodaje wybraną strefę do listy w komponencie App.
